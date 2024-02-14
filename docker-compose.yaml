@@ -28,6 +28,16 @@ services:
     networks:
       - wines-network
 
+  composer:
+    build:
+      context: ./dockerfiles/composer
+      dockerfile: dockerfile
+    container_name: composer-container
+    volumes:
+      - ./src:/var/composer/src
+    networks:
+      - wines-network
+
   mysql:
     image: mysql
     container_name: mysql-container
